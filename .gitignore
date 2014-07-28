@@ -24,3 +24,7 @@
 *.swp
 *.swo
 
+# Build dirs
+build/*
+bin/*
+

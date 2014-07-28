@@ -1,0 +1,27 @@
+INCLUDE_DIRECTORIES (
+	${Boost_INCLUDE_DIRS}
+	${LIBTORRENT_INCLUDE_DIRS}
+    ${CMAKE_SOURCE_DIR}/lib/gtorrent-core/include
+	)
+
+ADD_DEFINITIONS (
+	${LIBTORRENT_CFLAGS}
+	)
+
+ADD_EXECUTABLE ( gtorrent-ncurses
+	main.cpp
+    panes/panes.cpp
+	)
+
+ADD_DEPENDENCIES (gtorrent-ncurses
+    gtorrent
+    )
+
+TARGET_LINK_LIBRARIES ( gtorrent-ncurses
+	${Boost_LIBRARIES}
+	${LIBTORRENT_LIBRARIES}
+    ${CURSES_LIBRARY}
+    ${PROJECT_BINARY_DIR}/lib/gtorrent-core/src/libgtorrent.a
+	)      
+
+INSTALL (TARGETS gtorrent-ncurses RUNTIME DESTINATION ${PREFIX}/bin/ PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE)
