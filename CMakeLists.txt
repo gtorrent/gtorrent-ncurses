@@ -23,7 +23,9 @@ PKG_SEARCH_MODULE (LIBTORRENT REQUIRED libtorrent-rasterbar)
 
 # Find ncurses
 INCLUDE(CheckLibraryExists)
+SET (CURSES_NEED_NCURSES ON)
 FIND_PACKAGE(Curses REQUIRED)
+
 # To find version
 INCLUDE_DIRECTORIES(${PROJECT_BINARY_DIR})
 
