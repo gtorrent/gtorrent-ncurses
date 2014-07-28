@@ -11,6 +11,9 @@ SET(gtorrent-ncurses_VERSION_PATCH 1)
 # Set compiler options
 SET (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -g -Wall")
 
+# Set Cmake to build runtime in cwd
+SET (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR})
+
 # Find Boost
 SET (Boost_USE_STATIC_LIBS ON) 
 SET (Boost_USE_MULTITHREADED ON)  
