@@ -1,4 +1,4 @@
-#include <ncurses/curses.h>
+#include <ncurses.h>
 #include <vector>
 
 class PANE : WINDOW {
