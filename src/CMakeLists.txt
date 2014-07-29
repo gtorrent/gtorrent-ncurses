@@ -2,7 +2,7 @@ INCLUDE_DIRECTORIES (
 	${Boost_INCLUDE_DIRS}
 	${LIBTORRENT_INCLUDE_DIRS}
     ${CURSES_INCLUDE_DIR}
-    ${CMAKE_SOURCE_DIR}/lib/gtorrent-core/include
+    ${CMAKE_SOURCE_DIR}/gtorrent-core/include
 	)
 
 ADD_DEFINITIONS (
@@ -22,7 +22,7 @@ TARGET_LINK_LIBRARIES ( gtorrent-ncurses
 	${Boost_LIBRARIES}
 	${LIBTORRENT_LIBRARIES}
     ${CURSES_LIBRARIES}
-    ${PROJECT_BINARY_DIR}/lib/gtorrent-core/src/libgtorrent.a
+    ${PROJECT_BINARY_DIR}/gtorrent-core/src/libgtorrent.a
 	)      
 
 INSTALL (TARGETS gtorrent-ncurses RUNTIME DESTINATION ${PREFIX}/bin/ PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE)
