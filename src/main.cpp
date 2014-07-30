@@ -5,8 +5,8 @@ int main(int argc, char *argv[]) {
     noecho();
 
     initialize_layout();
+    parent._printw("%d", parent._children().size());
     parent._refresh();
-    titlebar._refresh();
 
     getch();
     endwin();

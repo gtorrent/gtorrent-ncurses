@@ -9,14 +9,16 @@ PANE::PANE() {
 
 PANE::PANE(int r, int c, int oy, int ox) {
     window = newwin(r, c, oy, ox);
-    getmaxyx(window, rows, columns);
+    rows = r;
+    columns = c;
     y = oy;
     x = ox;
 }
 
 PANE::PANE(int r, int c, int oy, int ox, PANE* mparent) {
     window = derwin(*mparent, r, c, oy, ox);
-    getmaxyx(window, rows, columns);
+    rows = r;
+    columns = c;
     y = oy;
     x = ox;
     parent = mparent;
@@ -24,7 +26,8 @@ PANE::PANE(int r, int c, int oy, int ox, PANE* mparent) {
 
 PANE::PANE(int r, int c, int oy, int ox, WINDOW* mparent) {
     window = derwin(mparent, r, c, oy, ox);
-    getmaxyx(window, rows, columns);
+    rows = r;
+    columns = c;
     y = oy;
     x = ox;
     parent = new PANE(rows, columns, y, x);;
@@ -95,15 +98,17 @@ int PANE::_addch(const chtype ch) {
 int PANE::_printw(const char *fmt, ...) { // TODO: Fix this
     va_list args;
     va_start(args, fmt);
-    return vwprintw(*this, fmt, args);
+    vwprintw(*this, fmt, args);
     va_end(args);
+    return 1;
 }
 
 int PANE::_refresh() { // TODO: Fix the PANE creation functions so that this isn't redundant
+    wrefresh(*this);
     for(int i = 0; i < children.size(); i++) {
         children[i]->_refresh();
     }
-    return wrefresh(*this);
+    return 1;
 }
 
 int PANE::_border(chtype ls, chtype rs, chtype ts, chtype bs, chtype tl, chtype tr, chtype bl, chtype br) {
@@ -118,6 +123,7 @@ int PANE::_mvprintw(int y, int x, const char *fmt, ...) { // TODO: Fix this
     va_list args;
     va_start(args, *fmt);
     wmove(*this, y, x);
-    return vwprintw(*this, fmt, args);
+    vwprintw(*this, fmt, args);
     va_end(args);
+    return 1;
 }

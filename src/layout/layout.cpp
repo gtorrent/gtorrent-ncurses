@@ -17,6 +17,7 @@ int initialize_layout() {
     titlebar = PANE(3, termwidth, 0, 0);
     titlebar._border(' ', ' ', ' ', '+', ' ', ' ', '+', '+');
     titlebar._mvprintw(1, (termwidth-8)/2, "gTorrent");
+    parent.addchild(&titlebar);
 
 
     return 0;
