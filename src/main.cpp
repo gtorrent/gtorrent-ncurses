@@ -1,14 +1,8 @@
-#include "layout/layout.hpp"
-#include "gtorrent/Torrent.hpp"
+#include "logic.hpp"
 
 int main(int argc, char *argv[]) {
-    noecho();
 
-    initialize_layout();
-    parent._printw("%d", parent._children().size());
-    parent._refresh();
+    main_loop();
 
-    getch();
-    endwin();
     return 0;
 }

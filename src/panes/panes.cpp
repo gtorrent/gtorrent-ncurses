@@ -15,24 +15,6 @@ PANE::PANE(int r, int c, int oy, int ox) {
     x = ox;
 }
 
-PANE::PANE(int r, int c, int oy, int ox, PANE* mparent) {
-    window = derwin(*mparent, r, c, oy, ox);
-    rows = r;
-    columns = c;
-    y = oy;
-    x = ox;
-    parent = mparent;
-}
-
-PANE::PANE(int r, int c, int oy, int ox, WINDOW* mparent) {
-    window = derwin(mparent, r, c, oy, ox);
-    rows = r;
-    columns = c;
-    y = oy;
-    x = ox;
-    parent = new PANE(rows, columns, y, x);;
-}
-
 PANE::PANE(WINDOW* win) {
     window = win;
     getmaxyx(win, rows, columns);
@@ -57,12 +39,12 @@ int PANE::addchild(WINDOW* child) {
 }
 
 int PANE::addchild() {
-    children.push_back(new PANE(rows, columns, y, x, this));
+    children.push_back(new PANE(rows, columns, y, x));
     return 1;
 }
 
 int PANE::addchild(int r, int c, int oy, int ox) {
-    children.push_back(new PANE(r, c, oy, ox, this));
+    children.push_back(new PANE(r, c, oy, ox));
     return 1;
 }
 
@@ -95,9 +77,22 @@ int PANE::_addch(const chtype ch) {
     return waddch(*this, ch);
 }
 
+int PANE::_mvaddch(int y, int x, const chtype ch) {
+    return mvwaddch(*this, y, x, ch);
+}
+
 int PANE::_printw(const char *fmt, ...) { // TODO: Fix this
     va_list args;
     va_start(args, fmt);
+    vwprintw(*this, fmt, args);
+    va_end(args);
+    return 1;
+}
+
+int PANE::_mvprintw(int y, int x, const char *fmt, ...) { // TODO: Fix this
+    va_list args;
+    va_start(args, *fmt);
+    wmove(*this, y, x);
     vwprintw(*this, fmt, args);
     va_end(args);
     return 1;
@@ -119,11 +114,10 @@ int PANE::_border(chtype all) {
     return wborder(*this, all, all, all, all, all, all, all, all);
 }
 
-int PANE::_mvprintw(int y, int x, const char *fmt, ...) { // TODO: Fix this
-    va_list args;
-    va_start(args, *fmt);
-    wmove(*this, y, x);
-    vwprintw(*this, fmt, args);
-    va_end(args);
-    return 1;
+int PANE::_attron(attr_t attrs) {
+    return wattron(*this, attrs);
+}
+
+int PANE::_attroff(attr_t attrs) {
+    return wattroff(*this, attrs);
 }

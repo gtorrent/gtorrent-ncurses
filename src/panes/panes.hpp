@@ -31,17 +31,18 @@ class PANE {
         // Function wrappers
         int _addstr(const char * str);
         int _addch(const chtype ch);
+        int _mvaddch(int x, int y, const chtype ch);
         int _printw(const char *fmt, ...);
+        int _mvprintw(int y, int x, const char *fmt, ...);
         int _refresh();
         int _border(chtype ls, chtype rs, chtype ts, chtype bs, chtype tl, chtype tr, chtype bl, chtype br);
         int _border(chtype all);
-        int _mvprintw(int y, int x, const char *fmt, ...);
+        int _attron(attr_t attrs);
+        int _attroff(attr_t attrs);
 
         // Constructors and destructor
         PANE();
         PANE(int r, int c, int oy, int ox);
-        PANE(int r, int c, int oy, int ox, WINDOW* mparent);
-        PANE(int r, int c, int oy, int ox, PANE* mparent);
         PANE(PANE* mparent);
         ~PANE();
 };

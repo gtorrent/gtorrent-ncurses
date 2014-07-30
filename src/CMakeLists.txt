@@ -13,6 +13,7 @@ ADD_EXECUTABLE ( gtorrent-ncurses
 	main.cpp
     panes/panes.cpp
     layout/layout.cpp
+    logic.cpp
 	)
 
 ADD_DEPENDENCIES (gtorrent-ncurses
