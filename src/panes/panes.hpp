@@ -24,15 +24,18 @@ class PANE {
         int addchild(WINDOW* child);
         int addchild();
         int addchild(int r, int c, int oy, int ox);
+        int addchild(int r, int c, int oy, int ox, PANE* child);
         std::vector<PANE*> _children();
+        // WINDOW* _window();
 
         // Function wrappers
         int _addstr(const char * str);
-        int _addchar(const chtype ch);
+        int _addch(const chtype ch);
         int _printw(const char *fmt, ...);
         int _refresh();
         int _border(chtype ls, chtype rs, chtype ts, chtype bs, chtype tl, chtype tr, chtype bl, chtype br);
         int _border(chtype all);
+        int _mvprintw(int y, int x, const char *fmt, ...);
 
         // Constructors and destructor
         PANE();
