@@ -1,4 +1,4 @@
-#include "layout/layout.hpp"
+#include "MainWindow.hpp"
 
 int main_loop();
 

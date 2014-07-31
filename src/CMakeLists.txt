@@ -12,7 +12,7 @@ ADD_DEFINITIONS (
 
 ADD_EXECUTABLE ( gtorrent-ncurses
 	main.cpp
-    layout/layout.cpp
+    MainWindow.cpp
     logic.cpp
 	)
 
