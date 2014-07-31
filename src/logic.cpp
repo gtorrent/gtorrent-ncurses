@@ -8,7 +8,7 @@ int main_loop() {
     shared_ptr<gt::Core> gt_core(new gt::Core);
 
     if(gt_core->isRunning()) {
-        infobar->printw("Running");
+        infobar->printw(1, 0, "Running");
         infobar->refresh();
     }
 
