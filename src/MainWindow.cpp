@@ -1,4 +1,6 @@
 #include "MainWindow.hpp"
+#include "TorrentView.hpp"
+#include "Application.hpp"
 
 MainWindow::MainWindow()
     : NCursesPanel()
@@ -19,10 +21,12 @@ MainWindow::MainWindow()
     infobar->border(' ', ' ', ACS_HLINE, ' ', ACS_HLINE, ACS_HLINE, ' ', ' ');
     //infobar->addch(0, 19, ACS_BTEE);
 
-    torrents = new NCursesPanel(this->lines()-4, this->cols(), 2, 0);
-    torrents->printw(0,0,"lorem ipsup sit dolem amet");
+    torrents = new TorrentView(this->lines()-4, this->cols(), 2, 0);
+    //torrents->printw(0,0,"lorem ipsup sit dolem amet");
 
     refresh();
+
+    loop();
 }
 
 MainWindow::~MainWindow()
@@ -30,4 +34,24 @@ MainWindow::~MainWindow()
     delete titlebar;
     delete infobar;
     delete torrents;
+
+    endwin();
+    Application::getSingleton()->getCore()->shutdown();
+}
+
+void MainWindow::tick()
+{
+    torrents->update();
+}
+
+void MainWindow::loop()
+{
+    while(true) {
+        char chr = getch();
+        torrents->update();
+        if(chr == 'q') {
+            break;
+        }
+    }
+
 }

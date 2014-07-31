@@ -1,8 +1,6 @@
-#include "logic.hpp"
+#include "Application.hpp"
 
 int main(int argc, char *argv[]) {
 
-    main_loop();
-
-    return 0;
+	return Application::getSingleton()->run(argc, argv);
 }
