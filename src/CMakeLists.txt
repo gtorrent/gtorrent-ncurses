@@ -12,8 +12,9 @@ ADD_DEFINITIONS (
 
 ADD_EXECUTABLE ( gtorrent-ncurses
 	main.cpp
-    layout/layout.cpp
-    logic.cpp
+    Application.cpp
+    MainWindow.cpp
+    TorrentView.cpp
 	)
 
 ADD_DEPENDENCIES (gtorrent-ncurses
