@@ -11,7 +11,6 @@ ADD_DEFINITIONS (
 
 ADD_EXECUTABLE ( gtorrent-ncurses
 	main.cpp
-    panes/panes.cpp
     layout/layout.cpp
     logic.cpp
 	)
@@ -22,7 +21,7 @@ ADD_DEPENDENCIES (gtorrent-ncurses
 
 TARGET_LINK_LIBRARIES ( gtorrent-ncurses
 	${Boost_LIBRARIES}
-	${LIBTORRENT_LIBRARIES}
+    ${LIBTORRENT_LIBRARIES}
     ${CURSES_LIBRARIES}
     ${PROJECT_BINARY_DIR}/gtorrent-core/src/libgtorrent.a
 	)

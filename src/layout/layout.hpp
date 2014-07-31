@@ -1,24 +1,24 @@
-#include "../panes/panes.hpp"
-
+#include <cursesw.h>
+#include <cursesp.h>
 // Parent window aka top-level window
-extern PANE parent;
+extern NCursesWindow *parent;
 
 // Titlebar
-extern PANE titlebar;
+extern NCursesWindow *titlebar;
 
 // Torrent list area
-extern PANE torrents;
+extern NCursesWindow *torrents;
 
 // Torrent Statuses
-extern PANE status;
+extern NCursesWindow *status;
 
 // Torrent labels
-extern PANE labels;
+extern NCursesWindow *labels;
 
 // Torrent Trackers
-extern PANE trackers;
+extern NCursesWindow *trackers;
 
 // Info bar
-extern PANE infobar;
+extern NCursesWindow *infobar;
 
 int initialize_layout();
