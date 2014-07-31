@@ -52,7 +52,7 @@ void MainWindow::loop()
     static steady_clock::time_point t = steady_clock::now();
     while(true) {
         int chr = getch();
-        if((duration_cast<seconds>(steady_clock::now() - t)).count() >= 1)
+        if((duration_cast<milliseconds>(steady_clock::now() - t)).count() >= 200)
         {
             tick();
             t = steady_clock::now();
