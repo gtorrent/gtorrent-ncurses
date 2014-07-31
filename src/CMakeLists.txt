@@ -25,6 +25,7 @@ TARGET_LINK_LIBRARIES ( gtorrent-ncurses
     ${LIBTORRENT_LIBRARIES}
     ${NCURSESPP_LIBRARIES}
     ${NCURSES_LIBRARIES}
+    ${NCURSESPANEL_LIBRARIES}
     ${PROJECT_BINARY_DIR}/gtorrent-core/src/libgtorrent.a
 	)
 
