@@ -1,24 +1,24 @@
 #include <cursesw.h>
 #include <cursesp.h>
 // Parent window aka top-level window
-extern NCursesWindow *parent;
+extern NCursesPanel *parent;
 
 // Titlebar
-extern NCursesWindow *titlebar;
+extern NCursesPanel *titlebar;
 
 // Torrent list area
-extern NCursesWindow *torrents;
+extern NCursesPanel *torrents;
 
 // Torrent Statuses
-extern NCursesWindow *status;
+extern NCursesPanel *status;
 
 // Torrent labels
-extern NCursesWindow *labels;
+extern NCursesPanel *labels;
 
 // Torrent Trackers
-extern NCursesWindow *trackers;
+extern NCursesPanel *trackers;
 
 // Info bar
-extern NCursesWindow *infobar;
+extern NCursesPanel *infobar;
 
 int initialize_layout();

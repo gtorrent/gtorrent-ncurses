@@ -1,7 +1,8 @@
 INCLUDE_DIRECTORIES (
 	${Boost_INCLUDE_DIRS}
 	${LIBTORRENT_INCLUDE_DIRS}
-    ${CURSES_INCLUDE_DIR}
+    ${NCURSESPP_INCLUDE_DIRS}
+    ${NCURSES_INCLUDE_DIRS}
     ${CMAKE_SOURCE_DIR}/gtorrent-core/include
 	)
 
@@ -22,7 +23,8 @@ ADD_DEPENDENCIES (gtorrent-ncurses
 TARGET_LINK_LIBRARIES ( gtorrent-ncurses
 	${Boost_LIBRARIES}
     ${LIBTORRENT_LIBRARIES}
-    ${CURSES_LIBRARIES}
+    ${NCURSESPP_LIBRARIES}
+    ${NCURSES_LIBRARIES}
     ${PROJECT_BINARY_DIR}/gtorrent-core/src/libgtorrent.a
 	)
 

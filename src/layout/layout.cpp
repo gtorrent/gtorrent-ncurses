@@ -1,22 +1,23 @@
 #include "layout.hpp"
 int termwidth, termheight;
 
-NCursesWindow *parent;
-NCursesWindow *titlebar;
-NCursesWindow *status;
-NCursesWindow *labels;
-NCursesWindow *trackers;
-NCursesWindow *torrents;
-NCursesWindow *infobar;
+NCursesPanel *parent;
+NCursesPanel *titlebar;
+NCursesPanel *status;
+NCursesPanel *labels;
+NCursesPanel *trackers;
+NCursesPanel *torrents;
+NCursesPanel *infobar;
 
 int initialize_layout() {
     // Parent
-    parent = new NCursesWindow(initscr());
-    noecho();
-    start_color();
+    parent = new NCursesPanel();
 
     // Titlebar
-    titlebar = new NCursesWindow(derwin(parent, 2, parent->cols(), 0, 0);
+    titlebar = new NCursesPanel(2, parent->cols(), 0, 0);
+    titlebar->box(' ', ACS_HLINE);
 
+
+    parent->refresh();
     return 1;
 }
