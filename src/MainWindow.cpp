@@ -1,12 +1,14 @@
 #include "MainWindow.hpp"
 #include "TorrentView.hpp"
 #include "Application.hpp"
+#include <chrono>
 
 MainWindow::MainWindow()
     : NCursesPanel()
 {
     curs_set(0);
     start_color();
+    nodelay(true);// getch is not blocking
 
     init_pair(1, COLOR_MAGENTA, COLOR_BLACK);
 
@@ -46,9 +48,15 @@ void MainWindow::tick()
 
 void MainWindow::loop()
 {
+    using namespace std::chrono;
+    static steady_clock::time_point t = steady_clock::now();
     while(true) {
         char chr = getch();
-        torrents->update();
+        if((duration_cast<seconds>(steady_clock::now() - t)).count() >= 1)
+        {
+            tick();
+            t = steady_clock::now();
+        }
         if(chr == 'q') {
             break;
         }
