@@ -51,7 +51,7 @@ void MainWindow::loop()
     using namespace std::chrono;
     static steady_clock::time_point t = steady_clock::now();
     while(true) {
-        char chr = getch();
+        int chr = getch();
         if((duration_cast<seconds>(steady_clock::now() - t)).count() >= 1)
         {
             tick();
@@ -59,6 +59,12 @@ void MainWindow::loop()
         }
         if(chr == 'q') {
             break;
+        }
+        else if (chr == KEY_DOWN) {
+            torrents->selectionDown();
+        }
+        else if (chr == KEY_UP) {
+            torrents->selectionUp();
         }
     }
 
