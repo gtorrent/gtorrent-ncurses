@@ -11,4 +11,6 @@ class MainWindow : public NCursesPanel
 
     private:
     NCursesPanel *titlebar;
+    NCursesPanel *infobar;
+    NCursesPanel *torrents;
 };
