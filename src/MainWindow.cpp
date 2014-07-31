@@ -10,8 +10,6 @@ MainWindow::MainWindow()
     start_color();
     nodelay(true);// getch is not blocking
 
-    init_pair(1, COLOR_MAGENTA, COLOR_BLACK);
-
     titlebar = new NCursesPanel(2, this->cols(), 0, 0);
     titlebar->border(' ', ' ', ' ',ACS_HLINE, ' ', ' ',ACS_HLINE,ACS_HLINE);
     titlebar->attron(COLOR_PAIR(1));

@@ -2,6 +2,8 @@
 
 #include <cursesw.h>
 #include <cursesp.h>
+#include <map>
+#include <string>
 
 class TorrentView : public NCursesPanel
 {
@@ -13,4 +15,5 @@ class TorrentView : public NCursesPanel
 
     private:
         unsigned selected;
+	    std::map<std::string, int> colors; // Associates a state with a color pair
 };
