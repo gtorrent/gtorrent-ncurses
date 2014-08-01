@@ -3,6 +3,7 @@
 #include <cursesw.h>
 #include <cursesp.h>
 #include "TorrentView.hpp"
+#include "StatusView.hpp"
 
 class MainWindow : public NCursesPanel
 {
@@ -16,4 +17,5 @@ class MainWindow : public NCursesPanel
     NCursesPanel *titlebar;
     NCursesPanel *infobar;
     TorrentView *torrents;
+    StatusView *status;
 };

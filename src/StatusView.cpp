@@ -1,29 +1,46 @@
 #include "StatusView.hpp"
-#include "gtorrent/Torrent.hpp"
 #include "Application.hpp"
 #include <memory>
 #include <iostream> //FIXME: debug
 
 StatusList::StatusList() {
+    update();
+}
+
+void StatusList::update() {
     std::vector<std::shared_ptr<gt::Torrent>> torrents = Application::getSingleton()->getCore()->getTorrents();
     for(unsigned i = 0; i < torrents.size(); i++) {
-        if(torrents[i]->getState() == downloading) {
+        if(torrents[i]->getState() == libtorrent::torrent_status::state_t::downloading) {
             t_downloading.push_back(torrents[i]);
+        } else if (torrents[i]->getState() == libtorrent::torrent_status::state_t::checking_files) {
+            t_checking.push_back(torrents[i]);
+        } else if (torrents[i]->getState() == libtorrent::torrent_status::state_t::finished) {
+            t_completed.push_back(torrents[i]);
+        } else if (torrents[i]->getState() == libtorrent::torrent_status::state_t::seeding) {
+            t_seeding.push_back(torrents[i]);
+        } else {
+            t_stopped.push_back(torrents[i]);
         }
     }
 }
 
+StatusList::~StatusList() {}
+
 StatusView::StatusView(int nlines, int ncols, int begin_y, int begin_x)
     : NCursesPanel(nlines, ncols, begin_y, begin_x)
 {
+    update();
 }
 
 void StatusView::update()
 {
-    erase();
-
-    std::vector<std::shared_ptr<gt::Torrent>> torrents = Application::getSingleton()->getCore()->getTorrents();
-    for(unsigned i = 0;i < torrents.size();++i)
-        this->printw(i, 0, (torrents[i]->getHandle().name()).c_str());
+    statlist.update();
+    this->printw(1, 2, "Downloading (%d)", statlist.t_downloading.size());
+    this->printw(2, 2, "Seeding (%d)", statlist.t_seeding.size());
+    this->printw(3, 2, "Checking (%d)", statlist.t_checking.size());
+    this->printw(4, 2, "Completed (%d)", statlist.t_completed.size());
+    this->printw(5, 2, "Stopped (%d)", statlist.t_stopped.size());
     refresh();
 }
+
+StatusView::~StatusView() {}

@@ -65,3 +65,10 @@ void TorrentView::selectionUp()
     if(selected > 0)
         ++selected;
 }
+
+void TorrentView::processKey(int key) {
+    if(key == KEY_DOWN)
+        selectionDown();
+    else if(key == KEY_UP)
+        selectionUp();
+}

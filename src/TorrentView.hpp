@@ -12,6 +12,7 @@ class TorrentView : public NCursesPanel
         void update();
         void selectionDown();
         void selectionUp();
+        void processKey(int key);
 
     private:
         unsigned selected;
