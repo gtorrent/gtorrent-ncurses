@@ -4,6 +4,7 @@
 #include <cursesp.h>
 #include "TorrentView.hpp"
 #include "StatusView.hpp"
+#include "AddTorrent.hpp"
 
 class MainWindow : public NCursesPanel
 {
@@ -18,4 +19,5 @@ class MainWindow : public NCursesPanel
     NCursesPanel *infobar;
     TorrentView *torrents;
     StatusView *status;
+    AddTorrentView *addtorrent;
 };
