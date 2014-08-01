@@ -1,8 +1,7 @@
 #pragma once
 
 #include <ncurses.h>
-//#include "Version.hpp"
-#define GTORRENT_VERSION "FIXME"
+#include "Version.hpp"
 #include <memory>
 #include <gtorrent/Log.hpp>
 #include <gtorrent/Core.hpp>
