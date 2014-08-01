@@ -23,10 +23,10 @@ MainWindow::MainWindow()
     torrents = new TorrentView(this->lines()-4, this->cols()-20, 2, 20);
 
     status = new StatusView(7, 20, 2, 0);
+    status->border(' ', ACS_VLINE, ' ', ' ', ' ', ACS_VLINE, ' ', ACS_VLINE);
     status->attron(A_BOLD);
     status->printw(0, 0, "Status");
     status->attroff(A_BOLD);
-    status->border(' ', ACS_VLINE, ' ', ' ', ' ', ACS_VLINE, ' ', ACS_VLINE);
 
     refresh();
 
