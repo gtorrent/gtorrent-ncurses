@@ -21,13 +21,13 @@ MainWindow::MainWindow()
     //infobar->addch(0, 19, ACS_BTEE);
 
     torrents = new TorrentView(this->lines()-4, this->cols()-20, 2, 20);
-    //torrents->printw(0,0,"lorem ipsup sit dolem amet");
 
-    status = new StatusView(6, 20, 2, 0);
+    status = new StatusView(7, 20, 2, 0);
     status->attron(A_BOLD);
     status->printw(0, 0, "Status");
     status->attroff(A_BOLD);
     status->border(' ', ACS_VLINE, ' ', ' ', ' ', ACS_VLINE, ' ', ACS_VLINE);
+
     refresh();
 
     loop();
