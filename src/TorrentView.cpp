@@ -43,11 +43,11 @@ void TorrentView::update()
         if(i == selected)
         {
             attron(A_REVERSE);
-            this->printw(i, 0, (torrents[i]->getHandle().name()).c_str());
+            this->printw(i, 0, "%s", (torrents[i]->getHandle().name()).c_str());
             attroff(A_REVERSE);
         }
         else
-            this->printw(i, 0, (torrents[i]->getHandle().name()).c_str());
+            this->printw(i, 0, "%s", (torrents[i]->getHandle().name()).c_str());
         attroff(COLOR_PAIR(c));
     }
     refresh();
