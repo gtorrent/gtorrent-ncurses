@@ -35,12 +35,12 @@ StatusView::StatusView(int nlines, int ncols, int begin_y, int begin_x)
 void StatusView::update()
 {
     statlist.update();
-    printw(1, 2, "All (%d)", Application::getSingleton()->getCore()->getTorrents().size());
-    printw(2, 2, "Downloading (%d)", statlist.t_downloading.size());
-    printw(3, 2, "Seeding (%d)", statlist.t_seeding.size());
-    printw(4, 2, "Checking (%d)", statlist.t_checking.size());
-    printw(5, 2, "Completed (%d)", statlist.t_completed.size());
-    printw(6, 2, "Stopped (%d)", statlist.t_stopped.size());
+    printw(1, 2, "All (%zu)", Application::getSingleton()->getCore()->getTorrents().size());
+    printw(2, 2, "Downloading (%zu)", statlist.t_downloading.size());
+    printw(3, 2, "Seeding (%zu)", statlist.t_seeding.size());
+    printw(4, 2, "Checking (%zu)", statlist.t_checking.size());
+    printw(5, 2, "Completed (%zu)", statlist.t_completed.size());
+    printw(6, 2, "Stopped (%zu)", statlist.t_stopped.size());
     refresh();
 }
 
