@@ -8,6 +8,10 @@ SET(gtorrent-ncurses_VERSION_MINOR 0)
 SET(gtorrent-ncurses_VERSION_PATCH 1)
 ###############
 
+# Configure version into Version.hpp
+SET (VERSION ${gtorrent-ncurses_VERSION_MAJOR}.${gtorrent-ncurses_VERSION_MINOR}.${gtorrent-ncurses_VERSION_PATCH})
+CONFIGURE_FILE (src/utils/Version.hpp.in Version.hpp @ONLY)
+
 # Set compiler options
 SET (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -g -Wall")
 
