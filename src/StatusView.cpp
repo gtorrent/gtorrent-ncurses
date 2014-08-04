@@ -1,8 +1,30 @@
 #include "StatusView.hpp"
 #include "Application.hpp"
 #include <memory>
-#include <iostream> //FIXME: debug
 
+<<<<<<< HEAD
+=======
+unsigned StatusView::getStatusCount(const libtorrent::torrent_status::state_t &status)
+{
+    unsigned i = 0;
+    std::vector<std::shared_ptr<gt::Torrent>> torrents = Application::getSingleton()->getCore()->getTorrents();
+    for(auto t : torrents)
+        if(t->getState() == status)
+            ++i;
+    return i;
+}
+
+unsigned StatusView::getPausedCount()
+{
+    unsigned i = 0;
+    std::vector<std::shared_ptr<gt::Torrent>> torrents = Application::getSingleton()->getCore()->getTorrents();
+    for(auto t : torrents)
+        if(t->getHandle().status().paused)
+            ++i;
+    return i;
+}
+
+>>>>>>> master
 StatusView::StatusView(int nlines, int ncols, int begin_y, int begin_x)
     : NCursesPanel(nlines, ncols, begin_y, begin_x)
 {
