@@ -55,17 +55,19 @@ void TorrentView::update()
 void TorrentView::selectionDown()
 {
     std::vector<std::shared_ptr<gt::Torrent>> t = Application::getSingleton()->getCore()->getTorrents();
-    if(selected < t.size())
+    if(selected+1 < t.size()) {
         ++selected;
-    t_selected = t[selected];
+        t_selected = t[selected];
+    }
 }
 
 void TorrentView::selectionUp()
 {
     std::vector<std::shared_ptr<gt::Torrent>> t = Application::getSingleton()->getCore()->getTorrents();
-    if(selected > 0)
+    if(selected > 0) {
         --selected;
-    t_selected = t[selected];
+        t_selected = t[selected];
+    }
 }
 
 void TorrentView::processKey(int key) {
