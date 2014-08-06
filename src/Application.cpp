@@ -1,6 +1,8 @@
 #include "Application.hpp"
 #include "MainWindow.hpp"
 
+using namespace std;
+
 shared_ptr<Application> Application::m_app = nullptr;
 
 shared_ptr<Application> Application::getSingleton()
@@ -23,6 +25,9 @@ int Application::run(int argc, char **argv)
 
 	gt::Log::Debug("Starting up GUI layer...");
 	m_gui = make_shared<MainWindow>(/*argc, argv*/);
+
+	gt::Log::Debug("Shutting down core...");
+	getSingleton()->getCore()->shutdown();
 
 	return 0;
 }

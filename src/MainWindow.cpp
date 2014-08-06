@@ -41,7 +41,6 @@ MainWindow::~MainWindow()
     delete torrents;
 
     endwin();
-    Application::getSingleton()->getCore()->shutdown();
 }
 
 void MainWindow::tick()
