@@ -1,5 +1,4 @@
 #include "TorrentView.hpp"
-#include "gtorrent/Torrent.hpp"
 #include "Application.hpp"
 #include <vector>
 #include <memory>
@@ -56,14 +55,19 @@ void TorrentView::update()
 void TorrentView::selectionDown()
 {
     std::vector<std::shared_ptr<gt::Torrent>> t = Application::getSingleton()->getCore()->getTorrents();
-    if(selected < t.size())
+    if(selected+1 < t.size()) {
         ++selected;
+        t_selected = t[selected];
+    }
 }
 
 void TorrentView::selectionUp()
 {
-    if(selected > 0)
-        ++selected;
+    std::vector<std::shared_ptr<gt::Torrent>> t = Application::getSingleton()->getCore()->getTorrents();
+    if(selected > 0) {
+        --selected;
+        t_selected = t[selected];
+    }
 }
 
 void TorrentView::processKey(int key) {
@@ -71,4 +75,7 @@ void TorrentView::processKey(int key) {
         selectionDown();
     else if(key == KEY_UP)
         selectionUp();
+    else if(key == 'd') {
+        Application::getSingleton()->getCore()->removeTorrent(t_selected);
+    }
 }

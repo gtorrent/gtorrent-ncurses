@@ -4,6 +4,7 @@
 #include <cursesp.h>
 #include <map>
 #include <string>
+#include "gtorrent/Torrent.hpp"
 
 class TorrentView : public NCursesPanel
 {
@@ -16,5 +17,6 @@ class TorrentView : public NCursesPanel
 
     private:
         unsigned selected;
-	    std::map<std::string, int> colors; // Associates a state with a color pair
+        std::shared_ptr<gt::Torrent> t_selected;
+        std::map<std::string, int> colors; // Associates a state with a color pair
 };

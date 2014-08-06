@@ -28,8 +28,9 @@ MainWindow::MainWindow()
     status->printw(0, 0, "Status");
     status->attroff(A_BOLD);
 
-    refresh();
+    addtorrent = new AddTorrentView(10, this->cols()-20, (this->lines()-10)/2, 10);
 
+    refresh();
     loop();
 }
 
@@ -61,6 +62,7 @@ void MainWindow::loop()
             t = steady_clock::now();
         }
         torrents->processKey(chr);
+        addtorrent->processKey(chr);
         if(chr == 'q') {
             break;
         }

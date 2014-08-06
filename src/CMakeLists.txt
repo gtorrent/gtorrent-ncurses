@@ -16,6 +16,7 @@ ADD_EXECUTABLE ( gtorrent-ncurses
     MainWindow.cpp
     TorrentView.cpp
     StatusView.cpp
+    AddTorrent.cpp
 	)
 
 ADD_DEPENDENCIES (gtorrent-ncurses
