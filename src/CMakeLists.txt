@@ -1,35 +1,35 @@
 INCLUDE_DIRECTORIES (
-	${Boost_INCLUDE_DIRS}
-	${LIBTORRENT_INCLUDE_DIRS}
-    ${NCURSESPP_INCLUDE_DIRS}
-    ${NCURSES_INCLUDE_DIRS}
-    ${CMAKE_SOURCE_DIR}/gtorrent-core/include
-	)
+  ${Boost_INCLUDE_DIRS}
+  ${LIBTORRENT_INCLUDE_DIRS}
+  ${NCURSESPP_INCLUDE_DIRS}
+  ${NCURSES_INCLUDE_DIRS}
+  ${CMAKE_SOURCE_DIR}/gtorrent-core/include
+  )
 
 ADD_DEFINITIONS (
-	${LIBTORRENT_CFLAGS}
-	)
+  ${LIBTORRENT_CFLAGS}
+  )
 
 ADD_EXECUTABLE ( gtorrent-ncurses
-	main.cpp
-    Application.cpp
-    MainWindow.cpp
-    TorrentView.cpp
-    StatusView.cpp
-    AddTorrent.cpp
-	)
+  main.cpp
+  Application.cpp
+  MainWindow.cpp
+  TorrentView.cpp
+  StatusView.cpp
+  AddTorrent.cpp
+  )
 
 ADD_DEPENDENCIES (gtorrent-ncurses
-    gtorrent
-    )
+  gtorrent
+  )
 
 TARGET_LINK_LIBRARIES ( gtorrent-ncurses
-	${Boost_LIBRARIES}
-    ${LIBTORRENT_LIBRARIES}
-    ${NCURSESPP_LIBRARIES}
-    ${NCURSES_LIBRARIES}
-    ${NCURSESPANEL_LIBRARIES}
-    ${PROJECT_BINARY_DIR}/gtorrent-core/src/libgtorrent.a
-	)
+  ${Boost_LIBRARIES}
+  ${LIBTORRENT_LIBRARIES}
+  ${NCURSESPP_LIBRARIES}
+  ${NCURSES_LIBRARIES}
+  ${NCURSESPANEL_LIBRARIES}
+  ${PROJECT_BINARY_DIR}/gtorrent-core/src/libgtorrent.a
+  )
 
 INSTALL (TARGETS gtorrent-ncurses RUNTIME DESTINATION ${PREFIX}/bin/ PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE)
