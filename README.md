@@ -9,4 +9,5 @@ You must install ncurses-git-cxx from the AUR for this program to build properly
 Keybindings
 ================
 q: quit
+
 a: Add torrent (you must type the full path of the torrent FOR THE TIME BEING)
