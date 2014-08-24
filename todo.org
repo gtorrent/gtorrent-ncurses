@@ -1,0 +1,20 @@
+* Features
+** ENHANCEMENT Labels [0/2]
+ - [ ] Add Place for them in UI
+ - [ ] Sort by label
+
+** ENHANCEMENT Trackers [0/2]
+ - [ ] Add place for them in UI
+ - [ ] Sort by tracker
+*** SUGGESTION Add this feature to core
+
+** ENHANCEMENT Columns [0/2]
+ - [ ] Add place for them in UI
+ - [ ] Sort by column (ascending, descending)
+
+** ENHANCEMENT Adding Torrents [0/2]
+ - [ ] Think of a way to make adding torrents less of a headache
+ - [ ] Implement it
+
+* Bugs
+** BUG gtorrent logging/errors overlay on top of UI
