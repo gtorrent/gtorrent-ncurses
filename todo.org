@@ -18,7 +18,10 @@
 
 * Bugs
 ** BUG gtorrent logging/errors overlay on top of UI
-** BUG crash when last torrent is deleted
+** FIXED crash when last torrent is deleted
+   CLOSED: [2014-08-25 Mon 18:59]
+   - State "FIXED"      from "BUG"        [2014-08-25 Mon 18:59] \\
+     Fixed on Mon Aug 25 18:59:58 2014
 
 #+begin_comment
 #+begin_src emacs-lisp

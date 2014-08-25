@@ -13,7 +13,7 @@ class TorrentView : public NCursesPanel
         void update();
         void selectionDown();
         void selectionUp();
-  void deleteHandler(std::shared_ptr<gt::Torrent> t);
+  void deleteHandler();
         void processKey(int key);
 
     private:
