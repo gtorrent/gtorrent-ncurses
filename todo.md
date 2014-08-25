@@ -19,6 +19,15 @@
 <li><a href="#sec-2-1">2.1. <span class="todo BUG">BUG</span> gtorrent logging/errors overlay on top of UI</a></li>
 </ul>
 </li>
+<li><a href="#sec-3">3. Auto export code</a>
+<ul>
+<li>
+<ul>
+<li><a href="#sec-3-0-1">3.0.1. Press C-c C-c to enable automatic exporting</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -50,6 +59,10 @@
 # Bugs<a id="sec-2" name="sec-2"></a>
 
 ## BUG gtorrent logging/errors overlay on top of UI<a id="sec-2-1" name="sec-2-1"></a>
+
+# Auto export code<a id="sec-3" name="sec-3"></a>
+
+### Press C-c C-c to enable automatic exporting<a id="sec-3-0-1" name="sec-3-0-1"></a>
 
     (add-hook 'after-save-hook 
       (lambda() (org-md-export-to-markdown))
