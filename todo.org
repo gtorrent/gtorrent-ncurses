@@ -19,9 +19,7 @@
 * Bugs
 ** BUG gtorrent logging/errors overlay on top of UI
 
-* Auto export code
-*** Press C-c C-c to enable automatic exporting
-
+#+begin_comment
 #+begin_src emacs-lisp
 (add-hook 'after-save-hook 
   (lambda() (org-md-export-to-markdown))
@@ -29,3 +27,8 @@
   t
   )
 #+end_src
+
+#+RESULTS:
+| (lambda nil (org-md-export-to-markdown)) | t |
+
+#+end_comment
