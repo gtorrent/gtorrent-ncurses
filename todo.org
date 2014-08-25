@@ -18,6 +18,7 @@
 
 * Bugs
 ** BUG gtorrent logging/errors overlay on top of UI
+** BUG crash when last torrent is deleted
 
 #+begin_comment
 #+begin_src emacs-lisp

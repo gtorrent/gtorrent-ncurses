@@ -17,6 +17,7 @@
 <li><a href="#sec-2">2. Bugs</a>
 <ul>
 <li><a href="#sec-2-1">2.1. <span class="todo BUG">BUG</span> gtorrent logging/errors overlay on top of UI</a></li>
+<li><a href="#sec-2-2">2.2. <span class="todo BUG">BUG</span> crash when last torrent is deleted</a></li>
 </ul>
 </li>
 </ul>
@@ -50,3 +51,5 @@
 # Bugs<a id="sec-2" name="sec-2"></a>
 
 ## BUG gtorrent logging/errors overlay on top of UI<a id="sec-2-1" name="sec-2-1"></a>
+
+## BUG crash when last torrent is deleted<a id="sec-2-2" name="sec-2-2"></a>

@@ -35,19 +35,21 @@ void TorrentView::update()
     if(selected >= torrents.size()) // if we're out of bound reset the cursor
         selected = 0;
 
-    for(unsigned i = 0;i < torrents.size();++i)
-    {
-        unsigned c = colors[torrents[i]->getTextState()];
-        attron(COLOR_PAIR(c));
-        if(i == selected)
-        {
-            attron(A_REVERSE);
+    if(torrents.size() > 0) {
+      for(unsigned i = 0;i < torrents.size();++i)
+	{
+	  unsigned c = colors[torrents[i]->getTextState()];
+	  attron(COLOR_PAIR(c));
+	  if(i == selected)
+	    {
+	      attron(A_REVERSE);
+	      this->printw(i, 0, "%s", (torrents[i]->getName()).c_str());
+	      attroff(A_REVERSE);
+	    }
+	  else
             this->printw(i, 0, "%s", (torrents[i]->getName()).c_str());
-            attroff(A_REVERSE);
-        }
-        else
-            this->printw(i, 0, "%s", (torrents[i]->getName()).c_str());
-        attroff(COLOR_PAIR(c));
+	  attroff(COLOR_PAIR(c));
+	}
     }
     refresh();
 }
@@ -70,12 +72,16 @@ void TorrentView::selectionUp()
     }
 }
 
+void TorrentView::deleteHandler(std::shared_ptr<gt::Torrent> t) {
+  Application::getSingleton()->getCore()->removeTorrent(t);
+}
+
 void TorrentView::processKey(int key) {
     if(key == KEY_DOWN)
         selectionDown();
     else if(key == KEY_UP)
         selectionUp();
     else if(key == 'd') {
-        Application::getSingleton()->getCore()->removeTorrent(t_selected);
+      deleteHandler(t_selected);
     }
 }
