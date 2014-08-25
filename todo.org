@@ -18,3 +18,14 @@
 
 * Bugs
 ** BUG gtorrent logging/errors overlay on top of UI
+
+#+begin_src emacs-lisp
+(add-hook 'after-save-hook 
+  (lambda() (org-md-export-to-markdown))
+  nil
+  t
+  )
+#+end_src
+
+#+RESULTS:
+| (lambda nil (org-md-export-to-markdown)) | t |

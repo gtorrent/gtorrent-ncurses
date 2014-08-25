@@ -50,3 +50,9 @@
 # Bugs<a id="sec-2" name="sec-2"></a>
 
 ## BUG gtorrent logging/errors overlay on top of UI<a id="sec-2-1" name="sec-2-1"></a>
+
+    (add-hook 'after-save-hook 
+      (lambda() (org-md-export-to-markdown))
+      nil
+      t
+      )
