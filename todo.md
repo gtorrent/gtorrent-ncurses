@@ -11,7 +11,7 @@
 </ul>
 </li>
 <li><a href="#sec-1-3">1.3. <span class="todo ENHANCEMENT">ENHANCEMENT</span> Columns <code>[0/2]</code></a></li>
-<li><a href="#sec-1-4">1.4. <span class="todo ENHANCEMENT">ENHANCEMENT</span> Adding Torrents <code>[0/2]</code></a></li>
+<li><a href="#sec-1-4">1.4. <span class="todo ENHANCEMENT">ENHANCEMENT</span> Adding Torrents <code>[3/4]</code></a></li>
 </ul>
 </li>
 <li><a href="#sec-2">2. Bugs</a>
@@ -43,10 +43,12 @@
 -   [ ] Add place for them in UI
 -   [ ] Sort by column (ascending, descending)
 
-## ENHANCEMENT Adding Torrents <code>[0/2]</code><a id="sec-1-4" name="sec-1-4"></a>
+## ENHANCEMENT Adding Torrents <code>[3/4]</code><a id="sec-1-4" name="sec-1-4"></a>
 
--   [ ] Think of a way to make adding torrents less of a headache
--   [ ] Implement it
+-   [X] Think of a way to make adding torrents less of a headache
+-   [X] Implement it
+-   [X] Tilde expansion
+-   [ ] Tab expansion
 
 # Bugs<a id="sec-2" name="sec-2"></a>
 

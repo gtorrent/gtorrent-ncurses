@@ -12,9 +12,11 @@
  - [ ] Add place for them in UI
  - [ ] Sort by column (ascending, descending)
 
-** ENHANCEMENT Adding Torrents [0/2]
- - [ ] Think of a way to make adding torrents less of a headache
- - [ ] Implement it
+** ENHANCEMENT Adding Torrents [3/4]
+ - [X] Think of a way to make adding torrents less of a headache
+ - [X] Implement it
+ - [X] Tilde expansion
+ - [ ] Tab expansion
 
 * Bugs
 ** BUG gtorrent logging/errors overlay on top of UI
