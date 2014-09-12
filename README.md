@@ -10,4 +10,4 @@ Keybindings
 ================
 q: quit
 
-a: Add torrent (you must type the full path of the torrent FOR THE TIME BEING)
+a: Add torrent (you may use "~" to represent your home directory)
