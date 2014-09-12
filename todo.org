@@ -20,6 +20,7 @@
 
 * Bugs
 ** BUG gtorrent logging/errors overlay on top of UI
+** BUG fix tracker names
 ** FIXED crash when last torrent is deleted
    CLOSED: [2014-08-25 Mon 18:59]
    - State "FIXED"      from "BUG"        [2014-08-25 Mon 18:59] \\

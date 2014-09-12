@@ -17,7 +17,8 @@
 <li><a href="#sec-2">2. Bugs</a>
 <ul>
 <li><a href="#sec-2-1">2.1. <span class="todo BUG">BUG</span> gtorrent logging/errors overlay on top of UI</a></li>
-<li><a href="#sec-2-2">2.2. <span class="done FIXED">FIXED</span> crash when last torrent is deleted</a></li>
+<li><a href="#sec-2-2">2.2. <span class="todo BUG">BUG</span> fix tracker names</a></li>
+<li><a href="#sec-2-3">2.3. <span class="done FIXED">FIXED</span> crash when last torrent is deleted</a></li>
 </ul>
 </li>
 </ul>
@@ -54,7 +55,9 @@
 
 ## BUG gtorrent logging/errors overlay on top of UI<a id="sec-2-1" name="sec-2-1"></a>
 
-## FIXED crash when last torrent is deleted<a id="sec-2-2" name="sec-2-2"></a>
+## BUG fix tracker names<a id="sec-2-2" name="sec-2-2"></a>
+
+## FIXED crash when last torrent is deleted<a id="sec-2-3" name="sec-2-3"></a>
 
 -   State "FIXED"      from "BUG"        <span class="timestamp-wrapper"><span class="timestamp">[2014-08-25 Mon 18:59]</span></span>   
          Fixed on Mon Aug 25 18:59:58 2014

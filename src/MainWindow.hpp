@@ -2,6 +2,7 @@
 
 #include <cursesw.h>
 #include <cursesp.h>
+#include "TrackerView.hpp"
 #include "TorrentView.hpp"
 #include "StatusView.hpp"
 #include "AddTorrent.hpp"
@@ -20,4 +21,5 @@ class MainWindow : public NCursesPanel
     TorrentView *torrents;
     StatusView *status;
     AddTorrentView *addtorrent;
+  TrackerView *trackers;
 };

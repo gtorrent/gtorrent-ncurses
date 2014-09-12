@@ -23,11 +23,14 @@ MainWindow::MainWindow()
   torrents = new TorrentView(this->lines()-4, this->cols()-20, 2, 20);
 
   status = new StatusView(7, 20, 2, 0);
+  // TODO: Refactor this into the constructor
   status->border(' ', ACS_VLINE, ' ', ' ', ' ', ACS_VLINE, ' ', ACS_VLINE);
   status->attron(A_BOLD);
   status->printw(0, 0, "Status");
   status->attroff(A_BOLD);
 
+  trackers = new TrackerView((this->lines() - 9)/2, 20, 9, 0);
+  
   addtorrent = new AddTorrentView(10, this->cols()-20, (this->lines()-10)/2, 10);
 
   refresh();
@@ -39,6 +42,8 @@ MainWindow::~MainWindow()
   delete titlebar;
   delete infobar;
   delete torrents;
+  delete addtorrent;
+  delete trackers;
 
   endwin();
 }
@@ -47,6 +52,7 @@ void MainWindow::tick()
 {
   torrents->update();
   status->update();
+  trackers->update();
 }
 
 void MainWindow::loop()
